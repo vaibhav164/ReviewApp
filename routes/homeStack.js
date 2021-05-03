@@ -1,39 +1,45 @@
 import React from "react";
-import {View, Text} from "react-native";
-import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator } from '@react-navigation/stack';
 import Home from '../screens/Home';
 import ReviewDetails from '../screens/ReviewDetails';
 import Modal from "../screens/Modal";
+import Header from "../CommonComponent/Header";
+import About from "../screens/About";
  const Stack =createStackNavigator();
 
-const HomeStack=()=>{
+const HomeStack=({navigation})=>{
     return(
-        <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen 
-                        name="First Screen" 
-                        component={Home} 
-                        options={{title:"", 
-                                  headerShown:false
-                                 }}
+                        name="Home" 
+                        component={Home}
+                        options={{
+                           headerTitle:()=> (<Header name={"Home"} navigator={navigation} />)
+                        }} 
+                       
                  />
                  <Stack.Screen 
                         name="ReviewDetails"
                         component={ReviewDetails}
-                        options={{ title:"",
-                                   headerShown:false
+                        options={{ 
+                                    title:"Review Screen"
                                 }}        
                 />
                 <Stack.Screen // here the name and component name needs to be same to navigate the component
                         name="Modal"
                         component={Modal}
-                        options={{ title:"",
-                                   headerShown:false
+                        options={{ 
+                                    title:"Modal Screen"
+                                }}        
+                />
+                <Stack.Screen // here the name and component name needs to be same to navigate the component
+                        name="About"
+                        component={About}
+                        options={{
+                                     headerTitle:()=> <Header />
                                 }}        
                 />
             </Stack.Navigator>
-        </NavigationContainer>
     );
 
 }

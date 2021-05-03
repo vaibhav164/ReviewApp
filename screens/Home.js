@@ -10,6 +10,7 @@ const Home =({navigation})=>{
             <Button title="Details" 
                     color="#999" 
                     onPress={() => navigation.navigate('ReviewDetails', {name,age})}
+                    // onPress={() => navigation.openDrawer()}
             />
         </View>
     );

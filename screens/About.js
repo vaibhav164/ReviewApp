@@ -8,3 +8,4 @@ const About=()=>{
         </View>
     );
 }
+export default About;
