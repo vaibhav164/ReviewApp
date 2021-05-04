@@ -63,6 +63,15 @@ and to use the container or text obj of globalstyle we can use as below
 
 and when we press the button we can navigate the ReviewDetails component
 
+### Drawer Navigation:-
+
+- To use Drawer navigation we first have to install its essential packages as
+  1. @react-navigation/drawer
+     And create a constant for react native drawer as ` const Drawer=createDrawerNavigation();`
+     And simply use it as normal stack navigation.
+
+**To open Drawer** by menu icon use the navigation prop as `navigation.openDrawer();`
+
 # Passing the data between Component Screens:-
 
 1. To pass data along with navigation prop we use jsx ab below
@@ -82,3 +91,7 @@ and when we press the button we can navigate the ReviewDetails component
 in above 1st line we called rioute as prop along with navigation
 now to use name and age passed in ReviewDetails Destructure them as in line 2 and to use them
 we have to use {JSON.stringify(name)} method as an JSX obj.
+
+# Image
+
+- In image tag source if we use require we cannot pass a concatinated string into it.

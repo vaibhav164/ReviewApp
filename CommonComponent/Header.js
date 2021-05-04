@@ -1,5 +1,5 @@
 import React from "react";
-import {View, StyleSheet, Text} from "react-native"
+import {View, StyleSheet, Text, Image, ImageBackground} from "react-native"
 import { Ionicons } from '@expo/vector-icons';
 
 const Header=(props)=>{
@@ -9,17 +9,18 @@ const Header=(props)=>{
         )
     }
     return(
-        <View style={styles.header}>
-            <Ionicons 
-                name="menu-outline" 
-                size={30} 
-                color='#777777'
-                onPress={pressHandler}    
-            />
-            <View>
-                <Text style={styles.headerText}>{props.name}</Text>
-            </View>
-        </View>
+            <ImageBackground style={styles.header} source={require('../assets/images/game_bg.png')}>
+                <Ionicons 
+                    name="menu-outline" 
+                    size={30} 
+                    color='#777777'
+                    onPress={pressHandler}    
+                />
+                <View style={styles.headerTitle}>
+                    <Image source={require('../assets/images/heart_logo.png')} style={styles.headerImg}/>
+                    <Text style={styles.headerText}>{props.name}</Text>
+                </View>
+            </ImageBackground>
     )
 }
 
@@ -31,12 +32,21 @@ const styles=StyleSheet.create({
         justifyContent:"flex-start",
         flexDirection:"row"
     },
+    headerTitle:{
+        flexDirection:"row",
+        marginHorizontal:75,
+    },
+    headerImg:{
+        height:30,
+        width:30,
+        marginTop:10,
+    },
     headerText:{
         fontSize:30,
         color:"#333",
         letterSpacing:1,
         fontWeight:"bold",
-        paddingHorizontal:20,
+        paddingHorizontal:10,
     }
 })
 export default Header;
