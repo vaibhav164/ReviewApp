@@ -95,3 +95,8 @@ we have to use {JSON.stringify(name)} method as an JSX obj.
 # Image
 
 - In image tag source if we use require we cannot pass a concatinated string into it.
+
+### Applying Two delcared styyle to a single Component:-
+
+- Suppose we have an icon component and we want to add style of its own and as we of other icon component to do this use deStructuring feature eg.,
+  `<Icon style={{...styles.Icon1, ...styles.Icon2}}>`

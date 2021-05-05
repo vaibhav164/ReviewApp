@@ -13,6 +13,14 @@ export const globalStyle=StyleSheet.create({
         fontSize:25,
         fontWeight:"bold",
         letterSpacing:1.
+    },
+    textInput:{
+        padding:5,
+        borderWidth:1,
+        borderColor:"#111",
+        borderRadius:5,
+        margin:5,
+        width:350
     }
 })
 
