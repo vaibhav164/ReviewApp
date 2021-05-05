@@ -21,6 +21,13 @@ export const globalStyle=StyleSheet.create({
         borderRadius:5,
         margin:5,
         width:350
+    },
+    errorMsg:{
+        color:"crimson",
+        fontWeight:"bold",
+        marginBottom:10,
+        marginTop:6,
+        textAlign:"center",
     }
 })
 

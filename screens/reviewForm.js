@@ -13,8 +13,8 @@ const ReviewSchema=yup.object({
                  .min(4),
     rating: yup.string()
                .required()
-               .test('is-num-1-5', "Rating must be a number between 1 and 5" , (value)=>{
-                    return parseInt(value)<6 && parseInt(value)>0;
+               .test('is-num-1-5', "Rating must be a number between 1 and 5" , (val)=>{
+                    return parseInt(val)<6 && parseInt(val)>0;
                })
 })
 const ReviewForm=({addPlants})=>{
@@ -30,23 +30,31 @@ const ReviewForm=({addPlants})=>{
             >
                 {(formikValues)=>(
                     <View>
-                        <TextInput placeholder="Enter Plant Name"
+                        <TextInput 
+                        placeholder="Enter Plant Name"
                         onChangeText={formikValues.handleChange('plant_Name')}
                         value={formikValues.values.plant_Name}
-                        style={globalStyle.textInput}/>
-                        <Text style={globalStyle.errorMsg}>{formikValues.touched.title && formikValues.errors.plant_Name}</Text>
+                        style={globalStyle.textInput}
+                        onBlur={formikValues.handleBlur('plant_Name')}/>
+                        <Text style={globalStyle.errorMsg}>{formikValues.touched.plant_Name && formikValues.errors.plant_Name}</Text>
 
-                        <TextInput placeholder="Enter Category"
+                        <TextInput minHeight={60}
+                        placeholder="Enter Category"
                         onChangeText={formikValues.handleChange('category')}
                         value={formikValues.values.category}
-                        style={globalStyle.textInput}/>
-                        <Text style={globalStyle.errorMsg}>{formikValues.touched.title && formikValues.errors.category}</Text>
-                        <TextInput placeholder="Rating"
+                        style={globalStyle.textInput}
+                        onBlur={formikValues.handleBlur('category')}/>
+                        <Text style={globalStyle.errorMsg}>{formikValues.touched.category && formikValues.errors.category}</Text>
+                        
+                        <TextInput 
+                        placeholder="Rating"
                         onChangeText={formikValues.handleChange('rating')}
                         value={formikValues.values.rating}
                         style={globalStyle.textInput}
-                        keyboardType='number-pad'/>
-                        <Text style={globalStyle.errorMsg}>{formikValues.touched.titel && formikValues.errors.rating}</Text>
+                        keyboardType='number-pad'
+                        onBlur={formikValues.handleBlur('rating')}/>
+                        <Text style={globalStyle.errorMsg}>{formikValues.touched.rating && formikValues.errors.rating}</Text>
+                        
                         <TouchableOpacity
                          onPress={formikValues.handleSubmit}>
                         <View style={styles.OpacityContainer}>
@@ -76,6 +84,7 @@ const styles=StyleSheet.create({
         alignItems:"center",
         height:40,
         width:100,
-        alignSelf:"center"
+        alignSelf:"center",
+        borderRadius:15,
     }
 })
